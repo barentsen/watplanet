@@ -43,12 +43,12 @@ def watplanet_main(args=None):
     args = parser.parse_args(args)
 
     x, y = float(args.x[0]), float(args.y[0])
-    f = fits.open(args.fitsfile)
+    f = fits.open(args.fitsfile[0])
     mywcs = WCS(f[0].header)
     ra, dec = mywcs.all_pix2world([[x, y]], 0)[0]
     name, num = identify_body(ra, dec, args.timestamp, args.radius)
     print('(ra, dec) = ({}, {})'.format(ra, dec))
-    print('Search radius: {:.0f} arcsec'.format(args.radius * 3600))
+    print('Search radius: {:.0f} arcsec'.format(args.radius))
     print('Object name: {}  (number: {})'.format(name, num))
 
 
