@@ -3,6 +3,7 @@ from astropy.wcs import WCS
 from astropy.table import Table
 import argparse
 import urllib
+import warnings
 
 DEFAULT_SR = 30  # Default search radius in arcsec
 
@@ -28,6 +29,8 @@ def identify_body(ra, dec, epoch, radius):
 
 
 def watplanet_main(args=None):
+    warnings.filterwarnings('ignore')
+
     parser = argparse.ArgumentParser(description="WATPLANET?!")
     parser.add_argument("-r", "--radius", metavar='degrees',
                         nargs="?", type=float, default=DEFAULT_SR,
@@ -46,7 +49,7 @@ def watplanet_main(args=None):
     f = fits.open(args.fitsfile[0])
     mywcs = WCS(f[0].header)
     ra, dec = mywcs.all_pix2world([[x, y]], 0)[0]
-    name, num = identify_body(ra, dec, args.timestamp, args.radius)
+    name, num = identify_body(ra, dec, args.timestamp[0], args.radius)
     print('(ra, dec) = ({}, {})'.format(ra, dec))
     print('Search radius: {:.0f} arcsec'.format(args.radius))
     print('Object name: {}  (number: {})'.format(name, num))
