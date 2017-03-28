@@ -2,6 +2,9 @@
 
 ***Dude what's that planet in my image?!***
 
+Given a fits image, a set of pixel coordinates (x, y), and a timestamp,
+this tool will query the `SkyBot` webservice and tell you the name
+of a known Solar System body at that position, if such a thing exists.
 
 ### Installation
 If you have a working installation of Python on your system,
@@ -11,7 +14,6 @@ $ git clone https://github.com/barentsen/watplanet.git
 $ cd watplanet
 $ python setup.py install
 ```
-
 
 ### Usage
 ```
