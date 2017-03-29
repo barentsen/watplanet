@@ -1,6 +1,6 @@
 # WATPLANET?!
 
-***Dude what's that planet in my image?!***
+***Mate what's that planet in my image?!***
 
 Given a fits image, a set of pixel coordinates (x, y), and a timestamp,
 this tool will query the `SkyBot` webservice and tell you the name
@@ -30,6 +30,6 @@ positional arguments:
 
 optional arguments:
   -h, --help            show this help message and exit
-  -r [degrees], --radius [degrees]
-                        Search radius (degrees).
+  -r [degrees], --radius [arcsec]
+                        Search radius (arcsec).
 ```

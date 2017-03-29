@@ -32,7 +32,7 @@ def watplanet_main(args=None):
     warnings.filterwarnings('ignore')
 
     parser = argparse.ArgumentParser(description="WATPLANET?!")
-    parser.add_argument("-r", "--radius", metavar='degrees',
+    parser.add_argument("-r", "--radius", metavar='arcsec',
                         nargs="?", type=float, default=DEFAULT_SR,
                         help="Search radius in arcsec (default: 30 arcsec).")
     parser.add_argument('fitsfile', nargs=1,
